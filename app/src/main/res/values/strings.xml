@@ -6,4 +6,5 @@
     <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="fill">Fill all the inputs</string>
+    <string name="error"> Error ! Check your connection !</string>
 </resources>
