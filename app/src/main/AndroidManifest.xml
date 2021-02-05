@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/vivamovie_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.UI_RegisterActivity"></activity>
         <activity android:name=".view.UI_MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

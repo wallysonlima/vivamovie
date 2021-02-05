@@ -2,7 +2,6 @@ package wallyson.lima.vivamovie.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -12,7 +11,7 @@ class UI_MainActivity : AppCompatActivity() {
     private lateinit var btnClean: Button
     private lateinit var btnLogin: Button
     private lateinit var btnRegister: Button
-    private lateinit var editTextEmail: EditText
+    private lateinit var editTextName: EditText
     private lateinit var editTextPassword: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,17 +33,17 @@ class UI_MainActivity : AppCompatActivity() {
         btnClean = findViewById(R.id.buttonClean)
         btnLogin = findViewById(R.id.buttonLogin)
         btnRegister = findViewById(R.id.buttonRegister)
-        editTextEmail = findViewById(R.id.editTextEmail)
+        editTextName = findViewById(R.id.editTextName)
         editTextPassword = findViewById(R.id.editTextPassword)
     }
 
     fun cleanInput() {
-        editTextEmail.setText("")
+        editTextName.setText("")
         editTextPassword.setText("")
     }
 
     fun register() {
-        if ( !editTextEmail.equals("") && editTextPassword.equals("") ) {
+        if ( !editTextName.equals("") && editTextPassword.equals("") ) {
 
         } else {
             Toast.makeText(this, getResources().getString(R.string.fill), Toast.LENGTH_SHORT).show()
