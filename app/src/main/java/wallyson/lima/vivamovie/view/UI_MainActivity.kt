@@ -12,7 +12,6 @@ class UI_MainActivity : AppCompatActivity() {
     private lateinit var btnClean: Button
     private lateinit var btnLogin: Button
     private lateinit var btnRegister: Button
-    private lateinit var btnFacebook: Button
     private lateinit var editTextEmail: EditText
     private lateinit var editTextPassword: EditText
 
@@ -35,7 +34,6 @@ class UI_MainActivity : AppCompatActivity() {
         btnClean = findViewById(R.id.buttonClean)
         btnLogin = findViewById(R.id.buttonLogin)
         btnRegister = findViewById(R.id.buttonRegister)
-        btnFacebook = findViewById(R.id.buttonFacebook)
         editTextEmail = findViewById(R.id.editTextEmail)
         editTextPassword = findViewById(R.id.editTextPassword)
     }

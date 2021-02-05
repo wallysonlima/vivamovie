@@ -2,7 +2,6 @@
     <string name="app_name">VivaMovie</string>
     <string name="email">Email Address</string>
     <string name="password">Password</string>
-    <string name="facebook">Access with Facebook</string>
     <string name="clean">Clean</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
