@@ -26,12 +26,15 @@ class RegisterPresenter {
     public fun toRegister() : Boolean {
         val name : String = mView.getName()
         val password : String = mView.getPassword()
+        var result : Boolean = false
 
-        if ( name.isNotEmpty() && password.isNotEmpty() ) {
-            AsyncTask.execute{ userDao?.insertUser( User(name, password) ) }
-            return true
+        AsyncTask.execute{
+            if ( name.isNotEmpty() && password.isNotEmpty() && userDao?.getUser(name) == null) {
+                userDao?.insertUser( User(name, password) )
+                result = true
+            }
         }
 
-        return false
+        return result
     }
 }

@@ -13,8 +13,6 @@ import kotlin.coroutines.coroutineContext
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
-    private var db: DatabaseHelper? = null
-    private var userDao: UserDao? = null
 
     @Test
     fun addition_isCorrect() {

@@ -56,7 +56,11 @@ class UI_RegisterActivity : AppCompatActivity(), RegisterInterface {
         if ( mPresenter.toRegister() ) {
             Toast.makeText(this, getString(R.string.successregister), Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, getString(R.string.fill), Toast.LENGTH_SHORT).show()
+            if ( editTextName.text.isNotEmpty() && editTextPassword.text.isNotEmpty() ) {
+                Toast.makeText(this, getString(R.string.fill), Toast.LENGTH_SHORT).show()
+            }
+
+            Toast.makeText(this, getString(R.string.usererror), Toast.LENGTH_SHORT).show()
         }
     }
 
