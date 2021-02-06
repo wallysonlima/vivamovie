@@ -1,6 +1,7 @@
 package wallyson.lima.vivamovie.presenter
 
 import android.content.Context
+import android.os.AsyncTask
 import wallyson.lima.vivamovie.dao.UserDao
 import wallyson.lima.vivamovie.factory_method.DatabaseHelper
 import wallyson.lima.vivamovie.model.User
@@ -27,7 +28,7 @@ class RegisterPresenter {
         val password : String = mView.getPassword()
 
         if ( name.isNotEmpty() && password.isNotEmpty() ) {
-            userDao?.insertUser( User(name, password) )
+            AsyncTask.execute{ userDao?.insertUser( User(name, password) ) }
             return true
         }
 

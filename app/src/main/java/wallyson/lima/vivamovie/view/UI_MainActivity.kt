@@ -1,5 +1,6 @@
 package wallyson.lima.vivamovie.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -43,10 +44,7 @@ class UI_MainActivity : AppCompatActivity() {
     }
 
     fun register() {
-        if ( !editTextName.equals("") && editTextPassword.equals("") ) {
-
-        } else {
-            Toast.makeText(this, getResources().getString(R.string.fill), Toast.LENGTH_SHORT).show()
-        }
+        val intent = Intent(this, UI_RegisterActivity::class.java)
+        startActivity(intent)
     }
 }
