@@ -11,9 +11,9 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUser(user : User)
 
-    @Query("SELECT * FROM User WHERE name == :name;")
-    fun getUser(name :String): User
+    @Query("SELECT name FROM User WHERE name = :name LIMIT 1;")
+    fun getUser(name :String): String
 
-    @Query("SELECT * FROM User WHERE name == :name & password == :password;")
+    @Query("SELECT * FROM User WHERE name LIKE :name AND password LIKE :password LIMIT 1;")
     fun getUser(name :String, password :String): User
 }

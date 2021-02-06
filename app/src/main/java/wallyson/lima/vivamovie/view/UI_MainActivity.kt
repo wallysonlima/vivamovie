@@ -7,13 +7,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import wallyson.lima.vivamovie.R
+import wallyson.lima.vivamovie.presenter.MainInterface
+import wallyson.lima.vivamovie.presenter.MainPresenter
+import wallyson.lima.vivamovie.presenter.RegisterPresenter
 
-class UI_MainActivity : AppCompatActivity() {
+class UI_MainActivity : AppCompatActivity(), MainInterface {
     private lateinit var btnClean: Button
     private lateinit var btnLogin: Button
     private lateinit var btnRegister: Button
     private lateinit var editTextName: EditText
     private lateinit var editTextPassword: EditText
+    private lateinit var mPresenter : MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,10 @@ class UI_MainActivity : AppCompatActivity() {
         btnRegister.setOnClickListener {
             register()
         }
+
+        btnLogin.setOnClickListener {
+            login()
+        }
     }
 
     fun initialize() {
@@ -36,6 +44,7 @@ class UI_MainActivity : AppCompatActivity() {
         btnRegister = findViewById(R.id.buttonRegister)
         editTextName = findViewById(R.id.editTextName)
         editTextPassword = findViewById(R.id.editTextPassword)
+        mPresenter = MainPresenter( this, applicationContext )
     }
 
     fun cleanInput() {
@@ -46,5 +55,23 @@ class UI_MainActivity : AppCompatActivity() {
     fun register() {
         val intent = Intent(this, UI_RegisterActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun login() {
+        if ( mPresenter.login() ) {
+            Toast.makeText(this, getString(R.string.successlogin), Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, UI_MainOptionsActivity::class.java)
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, getString(R.string.errorlogin), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun getName() : String {
+        return this.editTextName.getText().toString()
+    }
+
+    override fun getPassword() : String {
+        return this.editTextPassword.getText().toString()
     }
 }

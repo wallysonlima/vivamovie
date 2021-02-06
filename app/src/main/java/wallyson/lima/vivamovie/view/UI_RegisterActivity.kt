@@ -59,19 +59,19 @@ class UI_RegisterActivity : AppCompatActivity(), RegisterInterface {
             val intent = Intent(this, UI_MainOptionsActivity::class.java)
             startActivity(intent)
         } else {
-            if ( editTextName.text.isNotEmpty() && editTextPassword.text.isNotEmpty() ) {
+            if ( editTextName.text.isEmpty() || editTextPassword.text.isEmpty() ) {
                 Toast.makeText(this, getString(R.string.fill), Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, getString(R.string.usererror), Toast.LENGTH_SHORT).show()
             }
-
-            Toast.makeText(this, getString(R.string.usererror), Toast.LENGTH_SHORT).show()
         }
     }
 
     override fun getName() : String {
-        return this.editTextName.toString()
+        return this.editTextName.getText().toString()
     }
 
     override fun getPassword() : String {
-        return this.editTextPassword.toString()
+        return this.editTextPassword.getText().toString()
     }
 }

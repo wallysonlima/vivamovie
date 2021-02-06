@@ -17,7 +17,9 @@ abstract class DatabaseHelper : RoomDatabase() {
         fun getDatabaseHelper(ctx : Context): DatabaseHelper? {
             if ( INSTANCE == null ) {
                 synchronized(DatabaseHelper::class) {
-                    INSTANCE = Room.databaseBuilder(ctx.applicationContext, DatabaseHelper::class.java, "vivamovie.db").build()
+                    INSTANCE = Room.databaseBuilder(ctx.applicationContext, DatabaseHelper::class.java, "vivamovie.db")
+                        .allowMainThreadQueries()
+                        .build()
                 }
             }
             return INSTANCE

@@ -9,4 +9,6 @@
     <string name="error"> Error ! Check your connection !</string>
     <string name="successregister">User successfully registered !</string>
     <string name="usererror">User already exists !</string>
+    <string name="successlogin">Login successfully !</string>
+    <string name="errorlogin">Error ! User not found !</string>
 </resources>
