@@ -11,4 +11,5 @@
     <string name="usererror">User already exists !</string>
     <string name="successlogin">Login successfully !</string>
     <string name="errorlogin">Error ! User not found !</string>
+    <string name="cancel">Cancel</string>
 </resources>
