@@ -18,7 +18,7 @@ class MovieWebClient (
         fail: (error: String?) -> Unit
     ) {
         call.enqueue(object : Callback<T> {
-            override fun onResponse(call: Call<T>, response: Response<T> {
+            override fun onResponse(call: Call<T>, response: Response<T>) {
                 if ( response.isSuccessful ) {
                     succeed(response.body())
                 } else {
