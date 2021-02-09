@@ -6,8 +6,7 @@ import androidx.room.Query
 import wallyson.lima.vivamovie.model.Movie
 
 @Dao
-interface MovieDAO {
+interface MovieDao {
     @Query("SELECT title, popularity, posterPath, releaseDate, nameCompanie, nameGenre FROM Movie LIMIT 16;")
     fun getAllMovies(): LiveData<List<Movie>>
-
 }

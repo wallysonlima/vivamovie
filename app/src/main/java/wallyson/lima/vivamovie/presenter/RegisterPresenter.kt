@@ -2,13 +2,13 @@ package wallyson.lima.vivamovie.presenter
 
 import android.content.Context
 import wallyson.lima.vivamovie.dao.UserDao
-import wallyson.lima.vivamovie.factory_method.DatabaseHelper
+import wallyson.lima.vivamovie.factory_method.AppDatabase
 import wallyson.lima.vivamovie.model.User
 
 class RegisterPresenter {
     private lateinit var mView : RegisterInterface
     private lateinit var ctx : Context
-    private var db: DatabaseHelper? = null
+    private var db: AppDatabase? = null
     private var userDao: UserDao? = null
 
     constructor(mView : RegisterInterface?, ctx: Context) {
@@ -18,7 +18,7 @@ class RegisterPresenter {
         }
 
         this.ctx = ctx
-        db = DatabaseHelper.getDatabaseHelper(ctx)
+        db = AppDatabase.getDatabaseHelper(ctx)
         userDao = db?.userDao()
     }
 

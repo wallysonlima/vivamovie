@@ -8,16 +8,16 @@ import wallyson.lima.vivamovie.dao.UserDao
 import wallyson.lima.vivamovie.model.User
 
 @Database(entities = [User::class], version = 1, exportSchema = false)
-abstract class DatabaseHelper : RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 
     companion object {
-        var INSTANCE: DatabaseHelper? = null
+        var INSTANCE: AppDatabase? = null
 
-        fun getDatabaseHelper(ctx : Context): DatabaseHelper? {
+        fun getDatabaseHelper(ctx : Context): AppDatabase? {
             if ( INSTANCE == null ) {
-                synchronized(DatabaseHelper::class) {
-                    INSTANCE = Room.databaseBuilder(ctx.applicationContext, DatabaseHelper::class.java, "vivamovie.db")
+                synchronized(AppDatabase::class) {
+                    INSTANCE = Room.databaseBuilder(ctx.applicationContext, AppDatabase::class.java, "vivamovie.db")
                         .allowMainThreadQueries()
                         .build()
                 }

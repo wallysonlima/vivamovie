@@ -6,7 +6,7 @@ import androidx.room.Query
 import wallyson.lima.vivamovie.model.Person
 
 @Dao
-interface PersonDAO {
+interface PersonDao {
     @Query("Select name, knowForDepartment, birthday, placeOfBirthday, biography, popularity FROM Person LIMIT 16;")
     fun getAllArtist(): LiveData<List<Person>>
 }

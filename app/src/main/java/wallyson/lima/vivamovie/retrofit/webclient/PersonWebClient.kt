@@ -5,12 +5,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import wallyson.lima.vivamovie.model.Person
 import wallyson.lima.vivamovie.retrofit.AppRetrofit
-import wallyson.lima.vivamovie.retrofit.service.ArtistService
+import wallyson.lima.vivamovie.retrofit.service.PersonService
 
 private const val INVALID_REQUISITION = "Requisition not succeed !"
 
 class ArtistWebClient(
-    private val service: ArtistService = AppRetrofit().artistService) {
+    private val service: PersonService = AppRetrofit().personService) {
         private fun <T> executeRequisition(
             call: Call<T>,
             succeed: (artistNew: T?) -> Unit,
