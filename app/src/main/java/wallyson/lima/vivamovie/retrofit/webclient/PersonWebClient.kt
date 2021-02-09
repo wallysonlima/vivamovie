@@ -3,7 +3,6 @@ package wallyson.lima.vivamovie.retrofit.webclient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import wallyson.lima.vivamovie.model.Person
 import wallyson.lima.vivamovie.retrofit.AppRetrofit
 import wallyson.lima.vivamovie.retrofit.service.PersonService
 
