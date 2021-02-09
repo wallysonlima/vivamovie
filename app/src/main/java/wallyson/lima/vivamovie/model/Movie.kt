@@ -1,5 +1,8 @@
 package wallyson.lima.vivamovie.model
 
+import androidx.room.Entity
+
+@Entity
 class Movie {
     private lateinit var title : String
     private lateinit var popularity : Integer

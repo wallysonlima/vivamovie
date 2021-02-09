@@ -3,7 +3,7 @@ package wallyson.lima.vivamovie.retrofit.webclient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import wallyson.lima.vivamovie.model.Artist
+import wallyson.lima.vivamovie.model.Person
 import wallyson.lima.vivamovie.retrofit.AppRetrofit
 import wallyson.lima.vivamovie.retrofit.service.ArtistService
 
@@ -32,7 +32,7 @@ class ArtistWebClient(
         }
 
         fun getAllArtists(
-            succeed: (artistNew: List<Artist>?) -> Unit,
+            succeed: (personNew: List<Person>?) -> Unit,
             fail: (error: String?) -> Unit
         ) {
             executeRequisition(

@@ -1,6 +1,9 @@
 package wallyson.lima.vivamovie.model
 
-class Artist {
+import androidx.room.Entity
+
+@Entity
+class Person {
     private lateinit var name : String
     private lateinit var knowForDepartment : String
     private lateinit var birthday : String
