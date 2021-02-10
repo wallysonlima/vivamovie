@@ -6,4 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".view.UI_MainOptionsActivity">
 
+    <Button
+        android:id="@+id/buttonListMovies"
+        android:layout_width="89dp"
+        android:layout_height="88dp"
+        android:background="@mipmap/listmovies"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="40dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="150dp"
+        tools:text="@string/movielist" />
 </androidx.constraintlayout.widget.ConstraintLayout>

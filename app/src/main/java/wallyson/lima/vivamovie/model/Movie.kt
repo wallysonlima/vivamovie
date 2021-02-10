@@ -1,9 +1,12 @@
 package wallyson.lima.vivamovie.model
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 class Movie {
+    @PrimaryKey(autoGenerate = true)
+    private var id : Int = 0
     private lateinit var title : String
     private lateinit var popularity : Integer
     private lateinit var posterPath : String
@@ -19,5 +22,21 @@ class Movie {
         this.releaseDate = releaseDate
         this.nameCompany = nameCompany
         this.nameGenre = nameGenre
+    }
+
+    fun getPosterPath(): String {
+        return this.posterPath
+    }
+
+    fun getTitle(): String {
+        return this.title
+    }
+
+    fun getPopularity(): Integer {
+        return this.popularity
+    }
+
+    fun getReleaseDate() : String {
+        return this.releaseDate
     }
 }

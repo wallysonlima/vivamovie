@@ -13,4 +13,8 @@
     <string name="errorlogin">Error ! User not found !</string>
     <string name="cancel">Cancel</string>
     <string name="requisition">Requisition don\'t succeed !</string>
+    <string name="movielist">Movies List</string>
+    <string name="vivadecora">Viva Decora</string>
+    <string name="movies">Movies</string>
+    <string name="checkout">Check out the Movies</string>
 </resources>
