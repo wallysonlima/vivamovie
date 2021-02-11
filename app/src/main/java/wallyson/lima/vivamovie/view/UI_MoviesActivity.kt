@@ -3,14 +3,12 @@ package wallyson.lima.vivamovie.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import wallyson.lima.vivamovie.R
-import wallyson.lima.vivamovie.model.Movie
-import wallyson.lima.vivamovie.presenter.MainPresenter
 import wallyson.lima.vivamovie.presenter.MovieInterface
 import wallyson.lima.vivamovie.presenter.MoviePresenter
-import wallyson.lima.vivamovie.view.recyclerview.MovieListAdapter
 
 class UI_MoviesActivity : AppCompatActivity(), MovieInterface {
     private lateinit var mPresenter : MoviePresenter
+    private val type = intent.getStringExtra("type")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +21,12 @@ class UI_MoviesActivity : AppCompatActivity(), MovieInterface {
     }
 
     override fun getAllMovies() {
-        mPresenter.listAllMovies()
+        when(type) {
+            "movies" -> mPresenter.setUrl("movies")
+            "genre" -> mPresenter.setUrl("genre")
+            "company" -> mPresenter.setUrl("company")
+        }
+
+        mPresenter.getAllMovies()
     }
 }

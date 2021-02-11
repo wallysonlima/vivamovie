@@ -17,7 +17,7 @@ class MoviePresenter {
     private lateinit var mView : MovieInterface
     private var ctx : Context
     private var db: AppDatabase? = null
-    private val BASE_URL = "https://api.themoviedb.org/3/movie/550?api_key=6df08486f63fa614bf2d234b05405c97"
+    private lateinit var BASE_URL : String
 
     constructor(mView : MovieInterface?, ctx: Context) {
         if (mView != null) {
@@ -28,7 +28,7 @@ class MoviePresenter {
         db = AppDatabase.getDatabaseHelper(ctx)
     }
 
-    fun listAllMovies() {
+    fun getAllMovies() {
         val retrofitClient = AppRetrofit.getRetrofitInstance(BASE_URL)
         val movieService = retrofitClient.create(MovieService::class.java)
         val callback = movieService.getAllMovies()
@@ -57,6 +57,14 @@ class MoviePresenter {
 
         mDialogView.buttonError.setOnClickListener {
             mAlertDialog.dismiss()
+        }
+    }
+
+    fun setUrl(type: String) {
+        when(type) {
+            "movies" -> BASE_URL = "https://api.themoviedb.org/3/discover/movie?api_key=6df08486f63fa614bf2d234b05405c97"
+            "genre" -> "https://api.themoviedb.org/3/search/movie?query=marvel&api_key=6df08486f63fa614bf2d234b05405c97"
+            "company" -> "https://api.themoviedb.org/3/search/movie?query=marvel&api_key=6df08486f63fa614bf2d234b05405c97"
         }
     }
 }
