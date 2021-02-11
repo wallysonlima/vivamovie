@@ -8,8 +8,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 import wallyson.lima.vivamovie.R
 
 class UI_LocalizationActivity : AppCompatActivity(), OnMapReadyCallback {
-    private lateinit var mapView : MapView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_localization)
@@ -23,7 +21,6 @@ class UI_LocalizationActivity : AppCompatActivity(), OnMapReadyCallback {
         var mMap = googleMap
 
         val vivaDecora = LatLng(-23.5617693,-46.6654908)
-        mMap?.addMarker(MarkerOptions().position(vivaDecora).title(getString(R.string.vivadecora)))
         mMap?.addMarker(MarkerOptions().position(vivaDecora).title(getString(R.string.vivadecora)))
         mMap?.moveCamera(CameraUpdateFactory.newLatLng(vivaDecora))
     }
