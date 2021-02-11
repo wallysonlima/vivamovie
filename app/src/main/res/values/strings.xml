@@ -23,4 +23,10 @@
     <string name="tryagain">Try Again</string>
     <string name="captain">Confira todos os filmes dos estúdios Marvel</string>
     <string name="conferir">CONFERIR</string>
+    <string name="contact">Contact</string>
+    <string name="telephone">Telephone</string>
+    <string name="email">Email</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
+    <string name="localization">Localization</string>
 </resources>

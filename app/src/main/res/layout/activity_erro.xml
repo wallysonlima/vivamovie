@@ -8,7 +8,7 @@
     android:layout_marginTop="200dp"
     android:layout_marginRight="15dp"
     android:layout_marginBottom="30dp"
-    android:background="#FFFCFC"
+    android:background="#4C4C4C"
     android:orientation="vertical"
     tools:context=".view.UI_ErroActivity">
 
@@ -30,6 +30,7 @@
         android:layout_marginBottom="60dp"
         android:text="@string/error"
         android:textAlignment="center"
+        android:textColor="@android:color/background_light"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +41,9 @@
         android:id="@+id/buttonError"
         android:layout_width="108dp"
         android:layout_height="47dp"
+        android:background="#EF6C63"
         android:text="@string/cancel"
+        android:textColor="#514F4F"
         tools:layout_editor_absoluteX="92dp"
         tools:layout_editor_absoluteY="194dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
