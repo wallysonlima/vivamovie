@@ -1,21 +1,17 @@
 package wallyson.lima.vivamovie.presenter
 
 import android.content.Context
-import androidx.lifecycle.MediatorLiveData
 import wallyson.lima.vivamovie.factory_method.AppDatabase
 import wallyson.lima.vivamovie.model.Movie
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.LiveData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import wallyson.lima.vivamovie.retrofit.AppRetrofit
 import wallyson.lima.vivamovie.retrofit.service.MovieService
-import wallyson.lima.vivamovie.retrofit.webclient.MovieWebClient
 
 class MoviePresenter {
     private lateinit var mView : MovieInterface
-    private lateinit var ctx : Context
+    private var ctx : Context
     private var db: AppDatabase? = null
 
     constructor(mView : MovieInterface?, ctx: Context) {

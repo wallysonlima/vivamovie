@@ -12,13 +12,10 @@ import wallyson.lima.vivamovie.view.recyclerview.MovieListAdapter
 class UI_MoviesActivity : AppCompatActivity(), MovieInterface {
     private lateinit var mPresenter : MoviePresenter
 
-    private val adapter by lazy {
-        MovieListAdapter(context = this)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
+        initialize()
     }
 
     fun initialize() {
@@ -26,6 +23,6 @@ class UI_MoviesActivity : AppCompatActivity(), MovieInterface {
     }
 
     override fun getAllMovies() {
-        TODO("Not yet implemented")
+        mPresenter.listAllMovies()
     }
 }
