@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonError"
         android:layout_width="108dp"
         android:layout_height="47dp"
         android:text="@string/cancel"

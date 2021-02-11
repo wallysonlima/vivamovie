@@ -1,11 +1,15 @@
 package wallyson.lima.vivamovie.presenter
 
+import android.app.AlertDialog
 import android.content.Context
+import android.view.LayoutInflater
+import kotlinx.android.synthetic.main.activity_erro.view.*
 import wallyson.lima.vivamovie.factory_method.AppDatabase
 import wallyson.lima.vivamovie.model.Movie
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import wallyson.lima.vivamovie.R
 import wallyson.lima.vivamovie.retrofit.AppRetrofit
 import wallyson.lima.vivamovie.retrofit.service.MovieService
 
@@ -31,7 +35,7 @@ class MoviePresenter {
 
         callback.enqueue(object : Callback<List<Movie>> {
             override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
-                TODO("FAZER DEPOIS")
+                error()
             }
 
             override fun onResponse(call: Call<List<Movie>>, response: Response<List<Movie>>) {
@@ -40,5 +44,19 @@ class MoviePresenter {
                 }
             }
         })
+    }
+
+    fun error() {
+        val mDialogView = LayoutInflater.from(ctx).inflate(R.layout.activity_erro, null)
+
+        val mBuilder = AlertDialog.Builder(ctx)
+            .setView(mDialogView)
+            .setTitle("Error")
+
+        val mAlertDialog = mBuilder.show()
+
+        mDialogView.buttonError.setOnClickListener {
+            mAlertDialog.dismiss()
+        }
     }
 }
