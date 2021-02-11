@@ -8,10 +8,9 @@ import wallyson.lima.vivamovie.dao.UserDao
 import wallyson.lima.vivamovie.model.Movie
 import wallyson.lima.vivamovie.model.User
 
-@Database(entities = [User::class, Movie::class], version = 1, exportSchema = false)
+@Database(entities = [User::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
-    abstract fun movieDao(): MovieDao
 
     companion object {
         var INSTANCE: AppDatabase? = null
