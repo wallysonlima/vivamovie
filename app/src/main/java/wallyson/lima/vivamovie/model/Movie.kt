@@ -12,10 +12,5 @@ data class Movie (
     @SerializedName("posterPath")
     var posterPath : String,
     @SerializedName("releaseDate")
-    var releaseDate : String,
-    @SerializedName("nameCompanie")
-    var nameCompanie : String,
-    @SerializedName("nameGenre")
-    var nameGenre : String
-
+    var releaseDate : String
 )
