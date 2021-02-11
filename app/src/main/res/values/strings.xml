@@ -21,4 +21,6 @@
     <string name="selectoptions">Select Qtd Movies Before Advertising</string>
     <string name="minmax">Min 4 | Max 12</string>
     <string name="tryagain">Try Again</string>
+    <string name="captain">Confira todos os filmes dos estúdios Marvel</string>
+    <string name="conferir">CONFERIR</string>
 </resources>

@@ -17,9 +17,9 @@ class MoviePresenter {
     private lateinit var mView : MovieInterface
     private var ctx : Context
     private var db: AppDatabase? = null
+    private val BASE_URL = "https://api.themoviedb.org/3/movie/550?api_key=6df08486f63fa614bf2d234b05405c97"
 
     constructor(mView : MovieInterface?, ctx: Context) {
-
         if (mView != null) {
             this.mView = mView
         }
@@ -29,7 +29,7 @@ class MoviePresenter {
     }
 
     fun listAllMovies() {
-        val retrofitClient = AppRetrofit.getRetrofitInstance()
+        val retrofitClient = AppRetrofit.getRetrofitInstance(BASE_URL)
         val movieService = retrofitClient.create(MovieService::class.java)
         val callback = movieService.getAllMovies()
 
