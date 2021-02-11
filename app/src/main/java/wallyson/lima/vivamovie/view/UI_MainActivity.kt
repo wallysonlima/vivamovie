@@ -63,7 +63,6 @@ class UI_MainActivity : AppCompatActivity(), MainInterface, RegisterInterface {
 
         val mBuilder = AlertDialog.Builder(this)
             .setView(mDialogView)
-            .setTitle("Register")
 
         val mAlertDialog = mBuilder.show()
 
