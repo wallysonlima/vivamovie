@@ -32,4 +32,7 @@
     <string name="genre">Genre</string>
     <string name="companies">Companies</string>
     <string name="about">About</string>
+    <string name="developer">About the Developer</string>
+    <string name="wallyson">Wallyson Lima</string>
+    <string name="history">Bachelor of Computer Science from Unesp, loves the world of programming, Linux enthusiast and loves to share a cup of coffee with friends.</string>
 </resources>
