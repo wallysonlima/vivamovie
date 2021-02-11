@@ -3,7 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="270dp"
-    android:layout_height="210dp">
+    android:layout_height="210dp"
+    android:layout_marginLeft="70dp"
+    android:layout_marginTop="200dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="30dp"
+    android:background="@color/background">
 
 
     <TextView
@@ -13,8 +18,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="21dp"
-        android:layout_marginBottom="9dp"
         android:text="@string/selectoptions"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +47,9 @@
         android:layout_marginTop="29dp"
         android:layout_marginEnd="23dp"
         android:layout_marginBottom="16dp"
+        android:background="@color/colorPrimary"
         android:text="@string/select"
+        android:textColor="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

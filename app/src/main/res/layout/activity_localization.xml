@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4C4C4C"
+    android:background="@color/background"
     tools:context=".view.UI_LocalizationActivity">
 
     <TextView
