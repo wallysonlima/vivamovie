@@ -6,7 +6,16 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId "wallyson.lima.vivamovie"
+        Properties properties = new Properties()
+
+        if (rootProject.file("local.properties").exists()) {
+            properties.load(rootProject.file("local.properties").newDataInputStream())
+        }
+
+        // Inject the Maps API key into the manifest
+        manifestPlaceholders = [ mapsApiKey : properties.getProperty("MAPS_API_KEY", "") ]
+
+    applicationId "wallyson.lima.vivamovie"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 1

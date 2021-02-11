@@ -99,7 +99,7 @@ class UI_MainOptionsActivity : AppCompatActivity() {
     }
 
     private fun localization() {
-        val intent = Intent(this, UI_LocalizationActivity::class.java)
+        val intent = Intent(this, UI_MapsActivity::class.java)
         startActivity(intent)
     }
 
