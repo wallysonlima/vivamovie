@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/vivamovie_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.MoviesActivity"></activity>
+        <activity android:name=".view.UI_MoviesActivity"></activity>
         <activity android:name=".view.UI_MainOptionsActivity" />
         <activity android:name=".view.UI_ErroActivity" />
         <activity android:name=".view.UI_RegisterActivity" />
