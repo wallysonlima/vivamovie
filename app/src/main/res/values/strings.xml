@@ -29,4 +29,7 @@
     <string name="message">Message</string>
     <string name="send">Send</string>
     <string name="localization">Localization</string>
+    <string name="genre">Genre</string>
+    <string name="companies">Companies</string>
+    <string name="about">About</string>
 </resources>

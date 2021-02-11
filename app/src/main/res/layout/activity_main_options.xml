@@ -7,6 +7,25 @@
     android:background="#4C4C4C"
     tools:context=".view.UI_MainOptionsActivity">
 
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="330dp"
+        tools:text="@string/about" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/genre"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        tools:layout_editor_absoluteX="199dp"
+        tools:layout_editor_absoluteY="150dp" />
+
     <Button
         android:id="@+id/buttonListMovies"
         android:layout_width="89dp"
@@ -23,4 +42,75 @@
         tools:layout_editor_absoluteX="41dp"
         tools:layout_editor_absoluteY="150dp"
         tools:text="@string/movielist" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="90dp"
+        android:layout_height="93dp"
+        android:background="@mipmap/genres_foreground"
+        tools:layout_editor_absoluteX="171dp"
+        tools:layout_editor_absoluteY="40dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="89dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="24dp"
+        android:background="@mipmap/company_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="40dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="89dp"
+        android:layout_height="88dp"
+        android:background="@mipmap/contact_foreground"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="235dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="89dp"
+        android:layout_height="88dp"
+        android:background="@mipmap/localization_foreground"
+        tools:layout_editor_absoluteX="171dp"
+        tools:layout_editor_absoluteY="235dp" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="89dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="24dp"
+        android:background="@mipmap/developer_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="235dp" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/companies"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        tools:layout_editor_absoluteX="310dp"
+        tools:layout_editor_absoluteY="149dp" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="49dp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/localization"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="178dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
