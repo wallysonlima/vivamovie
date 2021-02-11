@@ -11,6 +11,7 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="78dp"
         android:layout_marginTop="71dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="36dp"
@@ -19,6 +20,7 @@
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextName"
         app:layout_constraintEnd_toStartOf="@+id/textView15"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.513" />
 
@@ -34,6 +36,7 @@
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -82,7 +85,7 @@
     <EditText
         android:id="@+id/editTextMessage"
         android:layout_width="347dp"
-        android:layout_height="160dp"
+        android:layout_height="124dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="32dp"
@@ -101,26 +104,30 @@
         android:layout_marginStart="72dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="61dp"
-        android:layout_marginBottom="86dp"
+        android:layout_marginBottom="40dp"
         android:background="#EF6C63"
         android:text="@string/clean"
         android:textColor="#514F4F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSend"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMessage" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextMessage"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/buttonSend"
         android:layout_width="145dp"
         android:layout_height="73dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="73dp"
-        android:layout_marginBottom="86dp"
+        android:layout_marginBottom="40dp"
         android:background="#EF6C63"
         android:text="@string/send"
         android:textColor="#514F4F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMessage" />
+        app:layout_constraintStart_toEndOf="@+id/buttonClean"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMessage"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

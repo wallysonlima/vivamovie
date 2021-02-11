@@ -35,4 +35,6 @@
     <string name="developer">About the Developer</string>
     <string name="wallyson">Wallyson Lima</string>
     <string name="history">Bachelor of Computer Science from Unesp, loves the world of programming, Linux enthusiast and loves to share a cup of coffee with friends.</string>
+    <string name="choose">Choose Email Client...</string>
+    <string name="sendsucceed">Email successfully Send</string>
 </resources>

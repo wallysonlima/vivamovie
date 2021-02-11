@@ -17,4 +17,5 @@ data class Movie (
     var nameCompanie : String,
     @SerializedName("nameGenre")
     var nameGenre : String
+
 )

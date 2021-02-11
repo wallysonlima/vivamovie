@@ -7,44 +7,32 @@
     android:background="@color/background"
     tools:context=".view.UI_AboutActivity">
 
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="51dp"
-        android:text="@string/developer"
-        android:textColor="@android:color/background_light"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="215dp"
         android:layout_height="239dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="101dp"
+        android:layout_marginBottom="25dp"
         android:src="@mipmap/wallyson_round"
+        app:layout_constraintBottom_toTopOf="@+id/textView24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="377dp"
         android:layout_height="269dp"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="38dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="16dp"
         android:text="@string/history"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:textSize="32sp"
+        android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
@@ -53,12 +41,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="98dp"
-        android:layout_marginTop="21dp"
         android:layout_marginEnd="106dp"
         android:text="@string/wallyson"
         android:textColor="@color/colorPrimary"
         android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
 </androidx.constraintlayout.widget.ConstraintLayout>

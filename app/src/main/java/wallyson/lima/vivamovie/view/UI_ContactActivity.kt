@@ -54,13 +54,24 @@ class UI_ContactActivity : AppCompatActivity() {
     }
 
     fun sendEmail() {
-        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-            val data = Uri.parse("mailto:" + editTextEmail.text.toString() )
+//        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+//            val data = Uri.parse("mailto:" + editTextEmail.text.toString() )
+//        }
+
+        val emailIntent = Intent(Intent.ACTION_SEND)
+        emailIntent.data = Uri.parse("mailto:")
+        emailIntent.type = "text/plain"
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, editTextEmail.text.toString())
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, editTextName.text.toString() + " -- " + editTextPhone.text.toString())
+        emailIntent.putExtra(Intent.EXTRA_TEXT, editTextMessage.text.toString())
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, getString(R.string.choose)))
+            Toast.makeText(this, getString(R.string.sendsucceed), Toast.LENGTH_SHORT).show()
+            finish()
+        } catch(e:Exception) {
+            Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
         }
-
-        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, editTextName.text.toString() + " -- " + editTextPhone.text.toString())
-        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, editTextMessage.text.toString())
-
-        startActivity(Intent.createChooser(emailIntent, getString(R.string.send)))
     }
 }

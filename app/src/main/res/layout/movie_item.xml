@@ -12,7 +12,7 @@
         android:layout_width="178dp"
         android:layout_height="225dp"
         android:layout_marginTop="16dp"
-        android:background="@tools:sample/avatars[0]"
+        android:background="@mipmap/captainmarvel_foreground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
