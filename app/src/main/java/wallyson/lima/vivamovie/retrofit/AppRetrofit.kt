@@ -29,8 +29,4 @@ class AppRetrofit {
     val movieService: MovieService by lazy {
         retrofit.create(MovieService::class.java)
     }
-
-    val personService: PersonService by lazy {
-        retrofit.create(PersonService::class.java)
-    }
 }

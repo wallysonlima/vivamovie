@@ -1,7 +1,6 @@
 package wallyson.lima.vivamovie.presenter
 
 import android.content.Context
-import wallyson.lima.vivamovie.dao.MovieDao
 import androidx.lifecycle.MediatorLiveData
 import wallyson.lima.vivamovie.factory_method.AppDatabase
 import wallyson.lima.vivamovie.model.Movie
