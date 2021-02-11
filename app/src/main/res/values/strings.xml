@@ -17,4 +17,8 @@
     <string name="vivadecora">Viva Decora</string>
     <string name="movies">Movies</string>
     <string name="checkout">Check out the Movies</string>
+    <string name="select">Select</string>
+    <string name="selectoptions">Select Qtd Movies Before Advertising</string>
+    <string name="minmax">Min 4 | Max 12</string>
+    <string name="tryagain">Try Again</string>
 </resources>

@@ -16,10 +16,6 @@ class UI_MoviesActivity : AppCompatActivity(), MovieInterface {
         MovieListAdapter(context = this)
     }
 
-//    private val viewModel by lazy {
-//        val repository = Movie
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)

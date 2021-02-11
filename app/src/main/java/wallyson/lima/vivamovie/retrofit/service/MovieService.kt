@@ -7,18 +7,18 @@ import retrofit2.http.GET
 import wallyson.lima.vivamovie.model.Movie
 
 interface MovieService {
-    @Query("SELECT title, popularity, posterPath, releaseDate, nameCompanie, nameGenre FROM Movie LIMIT 16;")
+    @GET("movie")
     fun getAllMovies(): Call<List<Movie>>
 
-    @Query("SELECT title, popularity, posterPath, releaseDate, nameCompanie, nameGenre FROM Movie ORDER BY title ASC LIMIT 16;")
+    @GET("movie")
     fun getAllMoviesOrderAsc(): Call<List<Movie>>
 
-    @Query("SELECT title, popularity, posterPath, releaseDate, nameCompanie, nameGenre FROM Movie Where nameCompanie LIKE :nameCompanie LIMIT 16;")
+    @GET("movie")
     public fun getAllMoviesByCompanie(nameCompanie : String): Call<List<Movie>>
 
-    @Query("SELECT title, popularity, posterPath, releaseDate, nameCompanie, nameGenre FROM Movie ORDER BY popularity DESC LIMIT 16;")
+    @GET("movie")
     public fun getAllBestMovies(): Call<List<Movie>>
 
-    @Query("SELECT title, popularity, posterPath, releaseDate, nameCompanie, nameGenre FROM Movie ORDER BY releaseDate DESC LIMIT 16;")
+    @GET("movie")
     public fun getAllNewMovies() : Call<List<Movie>>
 }

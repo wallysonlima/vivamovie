@@ -6,16 +6,17 @@ import wallyson.lima.vivamovie.factory_method.AppDatabase
 import wallyson.lima.vivamovie.model.Movie
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.LiveData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import wallyson.lima.vivamovie.retrofit.AppRetrofit
+import wallyson.lima.vivamovie.retrofit.service.MovieService
 import wallyson.lima.vivamovie.retrofit.webclient.MovieWebClient
 
 class MoviePresenter {
     private lateinit var mView : MovieInterface
     private lateinit var ctx : Context
     private var db: AppDatabase? = null
-    private var movieDao: MovieDao? = null
-    private val webclient: MovieWebClient = MovieWebClient()
-
-    private val mediator = MediatorLiveData<Resource<List<Movie>?>>()
 
     constructor(mView : MovieInterface?, ctx: Context) {
 
@@ -25,41 +26,23 @@ class MoviePresenter {
 
         this.ctx = ctx
         db = AppDatabase.getDatabaseHelper(ctx)
-        movieDao = db?.movieDao()
     }
 
+    fun listAllMovies() {
+        val retrofitClient = AppRetrofit.getRetrofitInstance()
+        val movieService = retrofitClient.create(MovieService::class.java)
+        val callback = movieService.getAllMovies()
 
-    fun listAllMovies(): LiveData<Resource<List<Movie>?>> {
-        val failWebApiLiveData = MutableLiveData<Resource<List<Movie>?>>()
-
-        mediator.addSource(failWebApiLiveData) {failResource ->
-            val actualResource = mediator.value
-            val newResource: Resource<List<Movie>?> = if(actualResource != null) {
-                Resource(data = actualResource.data, error = failResource.error)
-            } else {
-                failResource
+        callback.enqueue(object : Callback<List<Movie>> {
+            override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
+                TODO("FAZER DEPOIS")
             }
 
-            mediator.value = newResource
-        }
-
-        findInApi(
-            fail = { error ->
-                failWebApiLiveData.value = Resource(data = null, error = error)
-            })
-
-        return mediator
-    }
-
-    private fun findInApi(
-        fail: (error: String?) -> Unit
-    ) {
-        webclient.getAllMovies(
-            succeed = { newMovies ->
-              newMovies?.let {
-
-              }
-            }, fail = fail
-        )
+            override fun onResponse(call: Call<List<Movie>>, response: Response<List<Movie>>) {
+                response.body()?.forEach {
+                    TODO("FAZER DEPOIS")
+                }
+            }
+        })
     }
 }

@@ -9,24 +9,21 @@ import wallyson.lima.vivamovie.retrofit.service.MovieService
 private const val BASE_URL = "https://api.themoviedb.org/3/movie/550?api_key=6df08486f63fa614bf2d234b05405c97"
 
 class AppRetrofit {
+    companion object {
+        private val client by lazy {
+            val interceptador = HttpLoggingInterceptor()
+            interceptador.level = HttpLoggingInterceptor.Level.BODY
+            OkHttpClient.Builder()
+                .addInterceptor(interceptador)
+                .build()
+        }
 
-    private val client by lazy {
-        val interceptador = HttpLoggingInterceptor()
-        interceptador.level = HttpLoggingInterceptor.Level.BODY
-        OkHttpClient.Builder()
-            .addInterceptor(interceptador)
-            .build()
-    }
-
-    private val retrofit by lazy {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
-            .build()
-    }
-
-    val movieService: MovieService by lazy {
-        retrofit.create(MovieService::class.java)
+        fun getRetrofitInstance() : Retrofit {
+            return Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build()
+        }
     }
 }
