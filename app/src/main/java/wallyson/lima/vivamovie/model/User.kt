@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 class User {
     @PrimaryKey(autoGenerate = true)
     private var id: Int? = null
-    private lateinit var name: String
-    private lateinit var password: String
+    private var name: String
+    private var password: String
 
     constructor(name: String, password: String) {
         this.name = name

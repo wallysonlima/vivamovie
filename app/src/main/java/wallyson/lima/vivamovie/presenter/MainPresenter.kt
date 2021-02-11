@@ -6,7 +6,7 @@ import wallyson.lima.vivamovie.factory_method.AppDatabase
 
 class MainPresenter {
     private lateinit var mView : MainInterface
-    private lateinit var ctx : Context
+    private var ctx : Context
     private var db: AppDatabase? = null
     private var userDao: UserDao? = null
 

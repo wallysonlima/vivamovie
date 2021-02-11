@@ -7,7 +7,7 @@ import wallyson.lima.vivamovie.model.User
 
 class RegisterPresenter {
     private lateinit var mView : RegisterInterface
-    private lateinit var ctx : Context
+    private var ctx : Context
     private var db: AppDatabase? = null
     private var userDao: UserDao? = null
 

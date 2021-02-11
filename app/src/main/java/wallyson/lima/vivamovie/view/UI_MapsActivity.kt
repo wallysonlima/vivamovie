@@ -39,6 +39,6 @@ class UI_MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // Add a marker in Sydney and move the camera
         val vivaDecora = LatLng(-23.5617693,  -46.6654908)
         mMap.addMarker(MarkerOptions().position(vivaDecora).title(getString(R.string.vivadecora)))
-        mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(vivaDecora, 18f))
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(vivaDecora, 18f))
     }
 }

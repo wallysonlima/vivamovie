@@ -36,7 +36,7 @@ class MovieListAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movie = movies[position]
-        holder.vincula(movie)
+//        holder.vincula(movie)
     }
 
     fun update(movies: List<Movie>) {
@@ -58,12 +58,12 @@ class MovieListAdapter (
             }
         }
 
-        fun vincula(movie: Movie) {
+       // fun vincula(movie: Movie) {
 //            this.movie = movie
 //            Picasso.with(context).load(movie.getPosterPath()).into(itemView.imageViewBackground1)
 //            itemView.textViewTitle1.text = movie.getTitle()
 //            itemView.textViewYear1.text = movie.getReleaseDate()
 //            itemView.buttonPopularity1.text = movie.getPopularity().toString()
-        }
+//        }
     }
 }

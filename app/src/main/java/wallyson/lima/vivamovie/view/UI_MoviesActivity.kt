@@ -21,12 +21,6 @@ class UI_MoviesActivity : AppCompatActivity(), MovieInterface {
     }
 
     override fun getAllMovies() {
-        when(type) {
-            "movies" -> mPresenter.setUrl("movies")
-            "genre" -> mPresenter.setUrl("genre")
-            "company" -> mPresenter.setUrl("company")
-        }
-
         mPresenter.getAllMovies()
     }
 }

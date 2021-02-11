@@ -2,11 +2,11 @@ package wallyson.lima.vivamovie.view
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import wallyson.lima.vivamovie.R
 
 class UI_ContactActivity : AppCompatActivity() {
@@ -54,20 +54,14 @@ class UI_ContactActivity : AppCompatActivity() {
     }
 
     fun sendEmail() {
-//        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-//            val data = Uri.parse("mailto:" + editTextEmail.text.toString() )
-//        }
 
-        val emailIntent = Intent(Intent.ACTION_SEND)
-        emailIntent.data = Uri.parse("mailto:")
-        emailIntent.type = "text/plain"
-
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, editTextEmail.text.toString())
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, editTextName.text.toString() + " -- " + editTextPhone.text.toString())
-        emailIntent.putExtra(Intent.EXTRA_TEXT, editTextMessage.text.toString())
+        val emailIntent = Intent(Intent.ACTION_VIEW)
+        emailIntent.setData(Uri.parse("mailto:?subject=" +
+                editTextName.text.toString() + "&body=" + editTextEmail.text.toString() + " \n " + editTextMessage.text.toString() +
+                "&to=" + getString(R.string.emailwally)))
 
         try {
-            startActivity(Intent.createChooser(emailIntent, getString(R.string.choose)))
+            startActivity(emailIntent)
             Toast.makeText(this, getString(R.string.sendsucceed), Toast.LENGTH_SHORT).show()
             finish()
         } catch(e:Exception) {

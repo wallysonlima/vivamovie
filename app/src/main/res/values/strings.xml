@@ -39,5 +39,5 @@
     <string name="sendsucceed">Email successfully Send</string>
     <string name="title_activity_maps">Map</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDfZPdu_9-yIAiUo8DuY3kJREb_CNqaED0</string>
-
+    <string name="emailwally">wallyson.n.a.lima@gmail.com</string>
 </resources>
