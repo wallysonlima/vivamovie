@@ -49,6 +49,15 @@ class UI_MainOptionsActivity : AppCompatActivity() {
         }
     }
 
+    fun initiate() {
+        buttonListMovies = findViewById(R.id.buttonListMovies)
+        buttonGenre = findViewById(R.id.buttonGenre)
+        buttonCompany = findViewById(R.id.buttonCompany)
+        buttonContact = findViewById(R.id.buttonContact)
+        buttonLocalization = findViewById(R.id.buttonLocalization)
+        buttonAbout = findViewById(R.id.buttonAbout)
+    }
+
     fun listMovies() {
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.quantity, null)
 
@@ -97,14 +106,5 @@ class UI_MainOptionsActivity : AppCompatActivity() {
     private fun about() {
         val intent = Intent(this, UI_AboutActivity::class.java)
         startActivity(intent)
-    }
-
-    fun initiate() {
-        buttonListMovies = findViewById(R.id.buttonListMovies)
-        buttonGenre = findViewById(R.id.buttonGenre)
-        buttonCompany = findViewById(R.id.buttonCompany)
-        buttonContact = findViewById(R.id.buttonContact)
-        buttonLocalization = findViewById(R.id.buttonLocalization)
-        buttonAbout = findViewById(R.id.buttonAbout)
     }
 }
