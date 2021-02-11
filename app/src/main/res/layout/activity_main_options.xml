@@ -11,106 +11,147 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="77dp"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="330dp"
         tools:text="@string/about" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="74dp"
         android:text="@string/genre"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
-        tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="150dp" />
+        app:layout_constraintEnd_toStartOf="@+id/textView18"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGenre" />
 
     <Button
         android:id="@+id/buttonListMovies"
         android:layout_width="89dp"
         android:layout_height="88dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="22dp"
         android:background="@mipmap/listmovies"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGenre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="22dp"
         android:textColor="@android:color/background_light"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonListMovies"
         tools:text="@string/movielist" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonGenre"
         android:layout_width="90dp"
         android:layout_height="93dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="17dp"
         android:background="@mipmap/genres_foreground"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView17"
+        app:layout_constraintStart_toEndOf="@+id/buttonListMovies"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonCompany"
         android:layout_width="89dp"
         android:layout_height="88dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="21dp"
         android:background="@mipmap/company_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintStart_toEndOf="@+id/buttonGenre"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/buttonContact"
         android:layout_width="89dp"
         android:layout_height="88dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="33dp"
         android:background="@mipmap/contact_foreground"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="235dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView19"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLocalization"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/buttonLocalization"
         android:layout_width="89dp"
         android:layout_height="88dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginBottom="33dp"
         android:background="@mipmap/localization_foreground"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="235dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView20"
+        app:layout_constraintStart_toEndOf="@+id/buttonContact"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/buttonAbout"
         android:layout_width="89dp"
         android:layout_height="88dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="67dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="33dp"
         android:background="@mipmap/developer_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/textView21"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="235dp" />
+        app:layout_constraintStart_toEndOf="@+id/buttonLocalization"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="21dp"
         android:text="@string/companies"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
-        tools:layout_editor_absoluteX="310dp"
-        tools:layout_editor_absoluteY="149dp" />
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCompany" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
         android:text="@string/contact"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="49dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
         android:text="@string/localization"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="178dp" />
+        app:layout_constraintStart_toEndOf="@+id/textView19"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
