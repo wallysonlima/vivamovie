@@ -16,6 +16,7 @@
 <ul>
   <li>Kotlin</li>
   <li>Rest Api</li>
+  <li>TMDB Api</li>
   <li>SQLite</li>
   <li>Room</li>
   <li>Retrofit</li>
