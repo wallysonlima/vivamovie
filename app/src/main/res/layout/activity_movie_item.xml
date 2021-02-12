@@ -37,12 +37,12 @@
         android:layout_width="54dp"
         android:layout_height="48dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="27dp"
         android:background="@drawable/abc_vector_test"
         app:layout_constraintEnd_toStartOf="@+id/imageViewPoster"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="56dp" />
 
     <TextView
         android:id="@+id/textViewTitle"

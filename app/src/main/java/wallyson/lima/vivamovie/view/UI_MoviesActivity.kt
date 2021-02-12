@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_erro.view.*
@@ -41,6 +42,8 @@ class UI_MoviesActivity : AppCompatActivity() {
             LinearLayoutManager.VERTICAL,
             false
         )
+
+        popularMoviesLayoutMgr = GridLayoutManager(this, 2)
 
         popularMovies.layoutManager = popularMoviesLayoutMgr
         popularMoviesAdapter = MoviesAdapter(this, mutableListOf())

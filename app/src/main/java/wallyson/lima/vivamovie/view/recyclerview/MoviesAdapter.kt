@@ -19,8 +19,11 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import wallyson.lima.vivamovie.R
 import wallyson.lima.vivamovie.model.Movie
 import wallyson.lima.vivamovie.view.UI_MovieItemActivity
+import java.text.ParseException
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class MoviesAdapter (
     private val context: Context,
@@ -56,15 +59,25 @@ class MoviesAdapter (
         var posterPath : ImageView = itemView.findViewById(R.id.imageViewBackground)
         var releaseDate : TextView = itemView.findViewById(R.id.textViewYear)
 
-        @RequiresApi(VERSION_CODES.O)
-        var format = DateTimeFormatter.ISO_DATE
+        var formatEntrada = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+        var formatSaida = SimpleDateFormat("dd/MM/yyyy", Locale("pt", "BR"))
+        lateinit var dataOriginal : Date
+        lateinit var novoFormato : String
+
 
         @RequiresApi(VERSION_CODES.O)
         fun bind(movie: Movie) {
             title.setText(movie.title)
             rating.setText(movie.rating.toString())
-            var date = LocalDate.parse(movie.releaseDate, format)
-            releaseDate.setText(date.dayOfMonth.toString() + "/" + date.monthValue .toString() + "/" + date.year)
+//            var date = LocalDate.parse(movie.releaseDate, format)
+
+            try {
+                dataOriginal = formatEntrada.parse(movie.releaseDate)
+                novoFormato = formatSaida.format(dataOriginal)
+                releaseDate.setText(novoFormato)
+            } catch (e : ParseException) {
+                e.printStackTrace()
+            }
 
             Glide.with(itemView)
                 .load("https://image.tmdb.org/t/p/w342${movie.posterPath}")
@@ -74,9 +87,9 @@ class MoviesAdapter (
             posterPath.setOnClickListener {
                 val intent = Intent(context, UI_MovieItemActivity::class.java)
                 intent.putExtra("title", movie.title )
-                intent.putExtra("posterPath", movie.posterPath)
+                intent.putExtra("posterPath","https://image.tmdb.org/t/p/w342${movie.posterPath}")
                 intent.putExtra("rating", movie.rating.toString())
-                intent.putExtra("date", date.dayOfMonth.toString() + "/" + date.monthValue .toString() + "/" + date.year)
+                intent.putExtra("date", novoFormato)
                 intent.putExtra("sinopse", movie.overview)
                 startActivity(context, intent, null)
             }

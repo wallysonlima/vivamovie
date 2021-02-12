@@ -12,16 +12,16 @@ interface Api {
         @Query("page") page: Int
     ): Call<GetMoviesResponse>
 
-    @GET("discover/movie")
+    @GET("search/movie?query=marvel")
     fun getAllMarvelMovies(
-        @Query("query") marvel : String = "marvel",
         @Query("api_key") apiKey : String = "6df08486f63fa614bf2d234b05405c97",
         @Query("page") page: Int
     ): Call<GetMoviesResponse>
 
-   @GET("discover/movie/top_rated")
+   @GET("discover/movie")
    fun getAllMoviesTopRated(
        @Query("api_key") apiKey : String = "6df08486f63fa614bf2d234b05405c97",
-       @Query("page") page: Int
+       @Query("sort_by") average : String = "vote_average.desc",
+       @Query("page") page: Int = 10
    ): Call<GetMoviesResponse>
 }

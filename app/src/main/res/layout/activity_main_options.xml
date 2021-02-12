@@ -41,7 +41,7 @@
         android:layout_marginTop="130dp"
         android:layout_marginEnd="49dp"
         android:layout_marginBottom="80dp"
-        android:background="@mipmap/company_foreground"
+        android:background="@mipmap/marvel"
         app:layout_constraintBottom_toTopOf="@+id/buttonAbout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonGenre"

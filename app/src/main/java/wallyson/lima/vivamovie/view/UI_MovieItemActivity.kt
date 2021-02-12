@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.squareup.picasso.Picasso
 import wallyson.lima.vivamovie.R
 
 class UI_MovieItemActivity : AppCompatActivity() {
@@ -36,8 +35,15 @@ class UI_MovieItemActivity : AppCompatActivity() {
         date.setText(intent.getStringExtra("date"))
         sinopse.setText(intent.getStringExtra("sinopse"))
 
-        Picasso.get().load(intent.getStringExtra("posterPath")).into(posterPath)
-        Picasso.get().load(intent.getStringExtra("posterPath")).into(background)
+        Glide.with(this)
+            .load(intent.getStringExtra("posterPath"))
+            .transform(CenterCrop())
+            .into(posterPath)
+
+        Glide.with(this)
+            .load(intent.getStringExtra("posterPath"))
+            .transform(CenterCrop())
+            .into(background)
     }
 
     fun initialize() {
