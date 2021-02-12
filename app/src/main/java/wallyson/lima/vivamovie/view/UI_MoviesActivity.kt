@@ -4,26 +4,23 @@ import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
 import android.os.StrictMode
-import android.util.Log
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_erro.view.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import wallyson.lima.vivamovie.R
-import wallyson.lima.vivamovie.model.GetMoviesResponse
 import wallyson.lima.vivamovie.model.Movie
 import wallyson.lima.vivamovie.retrofit.MovieRepository
 import wallyson.lima.vivamovie.view.recyclerview.MoviesAdapter
 
 
 class UI_MoviesActivity : AppCompatActivity() {
-    private lateinit var moviesAdapter: MoviesAdapter
+    private lateinit var popularMovies: RecyclerView
+    private lateinit var popularMoviesAdapter: MoviesAdapter
+    private lateinit var popularMoviesLayoutMgr: LinearLayoutManager
     private lateinit var type: String
+    private var popularMoviesPage = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,33 +32,47 @@ class UI_MoviesActivity : AppCompatActivity() {
             StrictMode.setThreadPolicy(policy)
         }
 
-          type = intent.getStringExtra("type").toString()
+        type = intent.getStringExtra("type").toString()
 
-          var recycler :RecyclerView = findViewById(R.id.recycler)
-          moviesAdapter = MoviesAdapter(this, mutableListOf())
+        popularMovies = findViewById(R.id.recycler)
 
-        val layout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recycler.layoutManager = layout
-        recycler.adapter = moviesAdapter
-        moviesAdapter.notifyDataSetChanged()
-        recycler.setHasFixedSize(true)
-        recycler.itemAnimator = DefaultItemAnimator()
+        popularMoviesLayoutMgr = LinearLayoutManager(
+            this,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+
+        popularMovies.layoutManager = popularMoviesLayoutMgr
+        popularMoviesAdapter = MoviesAdapter(this, mutableListOf())
+        popularMovies.adapter = popularMoviesAdapter
+
+//        moviesAdapter = MoviesAdapter(this, mutableListOf())
+//
+//        val layout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        popularMovies.layoutManager = layout
+//        popularMovies.adapter = moviesAdapter
+//        moviesAdapter.notifyDataSetChanged()
+//        popularMovies.setHasFixedSize(true)
+//        popularMovies.itemAnimator = DefaultItemAnimator()
 
         when(type) {
             "movies" ->
                 MovieRepository.getAllMovies(
+                    popularMoviesPage,
                     onSuccess = ::onMoviesFetched,
                     onError = ::onError
                 )
 
             "top" ->
                 MovieRepository.getAllTopMovies(
+                    popularMoviesPage,
                     onSuccess = ::onMoviesFetched,
                     onError = ::onError
                 )
 
             "marvel" ->
                 MovieRepository.getAllMarvelMovies(
+                    popularMoviesPage,
                     onSuccess = ::onMoviesFetched,
                     onError = ::onError
                 )
@@ -69,7 +80,7 @@ class UI_MoviesActivity : AppCompatActivity() {
     }
 
     private fun onMoviesFetched(movies: List<Movie>) {
-        Log.d("MainActivity", "Movies: $movies")
+       popularMoviesAdapter.updateMovies(movies)
     }
 
     private fun onError() {

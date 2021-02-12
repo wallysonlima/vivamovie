@@ -1,17 +1,7 @@
 package wallyson.lima.vivamovie.presenter
 
-import android.app.AlertDialog
 import android.content.Context
-import android.view.LayoutInflater
-import kotlinx.android.synthetic.main.activity_erro.view.*
 import wallyson.lima.vivamovie.factory_method.AppDatabase
-import wallyson.lima.vivamovie.model.Movie
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import wallyson.lima.vivamovie.R
-import wallyson.lima.vivamovie.retrofit.MovieRepository
-import wallyson.lima.vivamovie.retrofit.service.MovieService
 
 class MoviePresenter {
     private lateinit var mView : MovieInterface

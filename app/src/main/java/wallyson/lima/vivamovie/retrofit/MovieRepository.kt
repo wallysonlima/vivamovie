@@ -9,10 +9,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import wallyson.lima.vivamovie.model.GetMoviesResponse
 import wallyson.lima.vivamovie.model.Movie
-import wallyson.lima.vivamovie.retrofit.service.MovieService
+import wallyson.lima.vivamovie.retrofit.service.Api
 
 object MovieRepository {
-    private val movieService: MovieService
+    private val api: Api
 
     init {
             val client by lazy {
@@ -29,7 +29,7 @@ object MovieRepository {
                     .client(client)
                     .build()
 
-            movieService = retrofit.create(MovieService::class.java)
+            api = retrofit.create(Api::class.java)
         }
 
         fun getAllMovies(
@@ -37,7 +37,7 @@ object MovieRepository {
              onSuccess: (movies: List<Movie>) -> Unit,
              onError: () -> Unit)
         {
-                movieService.getAllMovies(page = page)
+                api.getAllMovies(page = page)
                 .enqueue(object : Callback<GetMoviesResponse> {
                     override fun onResponse(
                     call: Call<GetMoviesResponse>,
@@ -66,7 +66,7 @@ object MovieRepository {
                            onSuccess: (movies: List<Movie>) -> Unit,
                            onError: () -> Unit)
     {
-            movieService.getAllMarvelMovies(page = page)
+            api.getAllMarvelMovies(page = page)
             .enqueue(object : Callback<GetMoviesResponse> {
                 override fun onResponse(
                     call: Call<GetMoviesResponse>,
@@ -95,7 +95,7 @@ object MovieRepository {
                         onSuccess: (movies: List<Movie>) -> Unit,
                         onError: () -> Unit)
     {
-            movieService.getAllMoviesTopRated(page = page)
+            api.getAllMoviesTopRated(page = page)
             .enqueue(object : Callback<GetMoviesResponse> {
                 override fun onResponse(
                     call: Call<GetMoviesResponse>,

@@ -54,8 +54,8 @@
         android:text="Homem Aranha De Volta ao Lar"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonPopularity"
-        app:layout_constraintEnd_toStartOf="@+id/buttonPopularity"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRating"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRating"
         app:layout_constraintStart_toEndOf="@+id/imageViewImage"
         app:layout_constraintTop_toBottomOf="@+id/imageViewPoster" />
 
@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
     <Button
-        android:id="@+id/buttonPopularity"
+        android:id="@+id/buttonRating"
         android:layout_width="46dp"
         android:layout_height="52dp"
         android:layout_marginEnd="30dp"
