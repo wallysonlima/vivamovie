@@ -27,7 +27,7 @@
         android:layout_height="93dp"
         android:layout_marginTop="121dp"
         android:layout_marginBottom="74dp"
-        android:background="@mipmap/genres_foreground"
+        android:background="@mipmap/company_foreground"
         app:layout_constraintBottom_toTopOf="@+id/buttonLocalization"
         app:layout_constraintEnd_toStartOf="@+id/buttonCompany"
         app:layout_constraintStart_toEndOf="@+id/buttonListMovies"
