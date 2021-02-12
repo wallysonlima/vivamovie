@@ -46,15 +46,6 @@ class UI_MoviesActivity : AppCompatActivity() {
         popularMoviesAdapter = MoviesAdapter(this, mutableListOf())
         popularMovies.adapter = popularMoviesAdapter
 
-//        moviesAdapter = MoviesAdapter(this, mutableListOf())
-//
-//        val layout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-//        popularMovies.layoutManager = layout
-//        popularMovies.adapter = moviesAdapter
-//        moviesAdapter.notifyDataSetChanged()
-//        popularMovies.setHasFixedSize(true)
-//        popularMovies.itemAnimator = DefaultItemAnimator()
-
         when(type) {
             "movies" ->
                 MovieRepository.getAllMovies(

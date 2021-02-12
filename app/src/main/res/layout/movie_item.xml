@@ -28,7 +28,7 @@
         android:textColor="@android:color/background_light"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textViewYear"
-        app:layout_constraintEnd_toStartOf="@+id/buttonRating"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRating3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewBackground" />
 
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
     <Button
-        android:id="@+id/buttonRating"
+        android:id="@+id/buttonRating3"
         android:layout_width="49dp"
         android:layout_height="41dp"
         android:layout_marginEnd="16dp"

@@ -2,7 +2,6 @@ package wallyson.lima.vivamovie.view.recyclerview
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Build.*
 
 import android.view.LayoutInflater
@@ -20,10 +19,8 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import wallyson.lima.vivamovie.R
 import wallyson.lima.vivamovie.model.Movie
 import wallyson.lima.vivamovie.view.UI_MovieItemActivity
-import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 class MoviesAdapter (
     private val context: Context,
@@ -41,6 +38,7 @@ class MoviesAdapter (
         return movies.size
     }
 
+    @RequiresApi(VERSION_CODES.O)
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(movies[position])
     }
@@ -54,7 +52,7 @@ class MoviesAdapter (
             RecyclerView.ViewHolder(itemView) {
 
         var title : TextView = itemView.findViewById(R.id.textViewTitle)
-        var rating : Button = itemView.findViewById(R.id.buttonRating)
+        var rating : Button = itemView.findViewById(R.id.buttonRating3)
         var posterPath : ImageView = itemView.findViewById(R.id.imageViewBackground)
         var releaseDate : TextView = itemView.findViewById(R.id.textViewYear)
 
@@ -77,8 +75,9 @@ class MoviesAdapter (
                 val intent = Intent(context, UI_MovieItemActivity::class.java)
                 intent.putExtra("title", movie.title )
                 intent.putExtra("posterPath", movie.posterPath)
-                intent.putExtra("rating", movie.rating)
-                intent.putExtra("date", movie.releaseDate)
+                intent.putExtra("rating", movie.rating.toString())
+                intent.putExtra("date", date.dayOfMonth.toString() + "/" + date.monthValue .toString() + "/" + date.year)
+                intent.putExtra("sinopse", movie.overview)
                 startActivity(context, intent, null)
             }
         }

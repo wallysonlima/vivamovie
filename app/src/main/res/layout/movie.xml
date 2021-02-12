@@ -45,7 +45,7 @@
         tools:layout_editor_absoluteY="158dp" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textViewGenre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fantasia"
@@ -65,7 +65,7 @@
         tools:layout_editor_absoluteY="301dp" />
 
     <Button
-        android:id="@+id/buttonRating"
+        android:id="@+id/buttonRating3"
         android:layout_width="46dp"
         android:layout_height="52dp"
         android:layout_marginEnd="16dp"

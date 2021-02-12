@@ -24,13 +24,11 @@
         android:id="@+id/imageViewImage"
         android:layout_width="135dp"
         android:layout_height="170dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="10dp"
         android:background="@mipmap/captainmarvel_foreground"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewPoster"
-        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewPoster" />
 
@@ -54,18 +52,20 @@
         android:text="Homem Aranha De Volta ao Lar"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonRating"
-        app:layout_constraintEnd_toStartOf="@+id/buttonRating"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRating3"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRating3"
         app:layout_constraintStart_toEndOf="@+id/imageViewImage"
         app:layout_constraintTop_toBottomOf="@+id/imageViewPoster" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textViewGenre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:text="Fantasia"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
@@ -75,24 +75,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="38dp"
         android:text="12/04/2018"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSinopse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
     <Button
-        android:id="@+id/buttonRating"
+        android:id="@+id/buttonRating3"
         android:layout_width="46dp"
         android:layout_height="52dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="97dp"
         android:background="@android:drawable/toast_frame"
         android:text="9.2"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSinopse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewTitle"
-        tools:layout_editor_absoluteY="286dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPoster" />
 
     <TextView
         android:id="@+id/textView11"
@@ -113,11 +118,14 @@
         android:id="@+id/textViewSinopse"
         android:layout_width="404dp"
         android:layout_height="285dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="11dp"
         android:text="A cidade de Atlantis, que já foi lar de uma das mais avançadas civilizações do mundo, agora é um reino submerso dominado pelo ganancioso Rei Orm. Com um vasto exército a seu dispor, Orm planeja conquistar tanto os demais reinos do oceano, quanto o mundo da superficie."
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="435dp" />>
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
