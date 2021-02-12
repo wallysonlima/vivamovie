@@ -26,22 +26,4 @@ class MoviePresenter {
         this.ctx = ctx
         db = AppDatabase.getDatabaseHelper(ctx)
     }
-
-    fun getAllMovies() {
-
-    }
-
-    fun error() {
-        val mDialogView = LayoutInflater.from(ctx).inflate(R.layout.activity_erro, null)
-
-        val mBuilder = AlertDialog.Builder(ctx)
-            .setView(mDialogView)
-            .setTitle("Error")
-
-        val mAlertDialog = mBuilder.show()
-
-        mDialogView.buttonError.setOnClickListener {
-            mAlertDialog.dismiss()
-        }
-    }
 }

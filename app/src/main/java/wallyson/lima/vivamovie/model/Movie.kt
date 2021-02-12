@@ -8,7 +8,7 @@ data class Movie (
     @SerializedName("title")
     var title : String,
     @SerializedName("popularity")
-    var popularity : Integer,
+    var popularity : Int,
     @SerializedName("posterPath")
     var posterPath : String,
     @SerializedName("releaseDate")

@@ -57,13 +57,19 @@
         android:id="@+id/scroll"
         android:layout_width="409dp"
         android:layout_height="585dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="145dp">
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-        <LinearLayout
-            android:id="@+id/linearMovies"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movies"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="match_parent" />
+
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

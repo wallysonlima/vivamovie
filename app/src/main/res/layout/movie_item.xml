@@ -8,7 +8,7 @@
     android:background="@color/background">
 
     <ImageView
-        android:id="@+id/imageViewBackground1"
+        android:id="@+id/imageViewBackground"
         android:layout_width="178dp"
         android:layout_height="225dp"
         android:layout_marginTop="16dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewTitle1"
+        android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -27,12 +27,12 @@
         android:text="Titulo do Filme"
         android:textColor="@android:color/background_light"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonPopularity1"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPopularity"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewBackground1" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBackground" />
 
     <TextView
-        android:id="@+id/textViewYear1"
+        android:id="@+id/textViewYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -40,12 +40,12 @@
         android:layout_marginEnd="97dp"
         android:text="2018"
         android:textColor="@android:color/background_light"
-        app:layout_constraintEnd_toStartOf="@+id/buttonPopularity1"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPopularity"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle1" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
     <Button
-        android:id="@+id/buttonPopularity1"
+        android:id="@+id/buttonPopularity"
         android:layout_width="49dp"
         android:layout_height="41dp"
         android:layout_marginTop="40dp"
@@ -53,5 +53,5 @@
         android:background="@android:drawable/toast_frame"
         android:text="9,2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewBackground1" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBackground" />
 </androidx.constraintlayout.widget.ConstraintLayout>

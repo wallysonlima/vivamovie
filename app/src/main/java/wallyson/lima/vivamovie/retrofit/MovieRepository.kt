@@ -9,6 +9,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import wallyson.lima.vivamovie.model.GetMoviesResponse
+import wallyson.lima.vivamovie.model.Movie
 import wallyson.lima.vivamovie.retrofit.service.MovieService
 
 object MovieRepository {
@@ -40,8 +41,11 @@ object MovieRepository {
             companyService = retrofit2.create(MovieService::class.java)
         }
 
-        fun getAllMovies(page: Int = 1) {
-            movieService.getAllMovies(page = page)
+        fun getAllMovies(page: Int = 1,
+                         onSuccess: (movies: List<Movie>) -> Unit,
+                         onError: () -> Unit)
+        {
+                movieService.getAllMovies(page = page)
                 .enqueue(object : Callback<GetMoviesResponse> {
                     override fun onResponse(
                     call: Call<GetMoviesResponse>,
@@ -51,15 +55,17 @@ object MovieRepository {
                             val responseBody = response.body()
 
                             if ( responseBody != null ) {
-                                Log.d("Repository", "Movies: ${responseBody.movies}")
+                                onSuccess.invoke(responseBody.movies)
                             } else {
-                                Log.d("Repository", "Failed to get Response")
+                                onError.invoke()
                             }
+                        } else {
+                            onError.invoke()
                         }
                     }
 
                     override fun onFailure(call: Call<GetMoviesResponse>, t: Throwable) {
-                        Log.e("Repository", "onFailure", t)
+                        onError.invoke()
                     }
                 })
         }
