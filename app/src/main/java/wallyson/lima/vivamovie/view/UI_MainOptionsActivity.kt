@@ -59,26 +59,9 @@ class UI_MainOptionsActivity : AppCompatActivity() {
     }
 
     fun listMovies() {
-        val mDialogView = LayoutInflater.from(this).inflate(R.layout.quantity, null)
-
-        val mBuilder = AlertDialog.Builder(this)
-            .setView(mDialogView)
-            .setTitle(getString(R.string.selectoptions))
-
-        val mAlertDialog = mBuilder.show()
-
-        mDialogView.buttonSelect.setOnClickListener {
-            val number = mDialogView.editTextNumber.text.toString()
-            mAlertDialog.dismiss()
-
-            if (Integer.parseInt(number) in 4..12) {
-                val intent = Intent(this, UI_MoviesActivity::class.java)
-                intent.putExtra("type", "movies")
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, getString(R.string.tryagain), Toast.LENGTH_SHORT).show()
-            }
-        }
+        val intent = Intent(this, UI_MoviesActivity::class.java)
+        intent.putExtra("type", "movies")
+        startActivity(intent)
     }
 
     private fun listGenre() {

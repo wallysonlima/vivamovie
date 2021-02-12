@@ -15,11 +15,13 @@ import wallyson.lima.vivamovie.view.recyclerview.MovieListAdapter
 class UI_MoviesActivity : AppCompatActivity() {
     private lateinit var movies: RecyclerView
     private lateinit var moviesAdapter: MovieListAdapter
-    private val type = intent.getStringExtra("type")
+    private lateinit var type: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
+
+        type = intent.getStringExtra("type").toString()
 
         movies = findViewById(R.id.movies)
         movies.layoutManager = LinearLayoutManager(
@@ -31,10 +33,25 @@ class UI_MoviesActivity : AppCompatActivity() {
         moviesAdapter = MovieListAdapter(this, listOf())
         movies.adapter = moviesAdapter
 
-        MovieRepository.getAllMovies(
-            onSuccess = ::onMovieFetch,
-            onError = ::onError
-        )
+        when(type) {
+            "movies" ->
+                MovieRepository.getAllMovies(
+                    onSuccess = ::onMovieFetch,
+                    onError = ::onError
+                )
+
+            "genre" ->
+                MovieRepository.getAllGenreMovies(
+                    onSuccess = ::onMovieFetch,
+                    onError = ::onError
+                )
+
+            "company" ->
+                MovieRepository.getAllMarvelMovies(
+                    onSuccess = ::onMovieFetch,
+                    onError = ::onError
+                )
+        }
     }
 
     private fun onMovieFetch(movies: List<Movie>) {
@@ -48,7 +65,7 @@ class UI_MoviesActivity : AppCompatActivity() {
             .setView(mDialogView)
 
         val mAlertDialog = mBuilder.show()
-        
+
         mDialogView.buttonError.setOnClickListener {
                 mAlertDialog.dismiss()
         }

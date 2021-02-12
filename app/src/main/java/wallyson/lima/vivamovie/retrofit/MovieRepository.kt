@@ -1,6 +1,5 @@
 package wallyson.lima.vivamovie.retrofit
 
-import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -26,24 +25,25 @@ object MovieRepository {
             }
 
             val retrofit = Retrofit.Builder()
-                    .baseUrl("https://api.themoviedb.org/3/discover/movie?api_key=6df08486f63fa614bf2d234b05405c97")
+                    .baseUrl("https://api.themoviedb.org/3/")
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(client)
+//                    .client(client)
                     .build()
 
-            var retrofit2 = Retrofit.Builder()
+            var retrofitCompany = Retrofit.Builder()
                 .baseUrl("https://api.themoviedb.org/3/search/movie?query=marvel&api_key=6df08486f63fa614bf2d234b05405c97")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()
 
             movieService = retrofit.create(MovieService::class.java)
-            companyService = retrofit2.create(MovieService::class.java)
+            companyService = retrofitCompany.create(MovieService::class.java)
         }
 
-        fun getAllMovies(page: Int = 1,
-                         onSuccess: (movies: List<Movie>) -> Unit,
-                         onError: () -> Unit)
+        fun getAllMovies(
+             page: Int = 1,
+             onSuccess: (movies: List<Movie>) -> Unit,
+             onError: () -> Unit)
         {
                 movieService.getAllMovies(page = page)
                 .enqueue(object : Callback<GetMoviesResponse> {
@@ -70,8 +70,11 @@ object MovieRepository {
                 })
         }
 
-    fun getAllMarvelMovies(page: Int = 1) {
-        companyService.getAllMovies(page = page)
+    fun getAllMarvelMovies(page: Int = 1,
+                           onSuccess: (movies: List<Movie>) -> Unit,
+                           onError: () -> Unit)
+    {
+            companyService.getAllMovies(page = page)
             .enqueue(object : Callback<GetMoviesResponse> {
                 override fun onResponse(
                     call: Call<GetMoviesResponse>,
@@ -81,21 +84,26 @@ object MovieRepository {
                         val responseBody = response.body()
 
                         if ( responseBody != null ) {
-                            Log.d("Repository", "Movies: ${responseBody.movies}")
+                            onSuccess.invoke(responseBody.movies)
                         } else {
-                            Log.d("Repository", "Failed to get Response")
+                            onError.invoke()
                         }
+                    } else {
+                        onError.invoke()
                     }
                 }
 
                 override fun onFailure(call: Call<GetMoviesResponse>, t: Throwable) {
-                    Log.e("Repository", "onFailure", t)
+                    onError.invoke()
                 }
             })
     }
 
-    fun getAllGenreMovies(page: Int = 1) {
-        movieService.getAllMoviesByGenre(page = page)
+    fun getAllGenreMovies(page: Int = 1,
+                          onSuccess: (movies: List<Movie>) -> Unit,
+                          onError: () -> Unit)
+    {
+            movieService.getAllMoviesByGenre(page = page)
             .enqueue(object : Callback<GetMoviesResponse> {
                 override fun onResponse(
                     call: Call<GetMoviesResponse>,
@@ -105,15 +113,17 @@ object MovieRepository {
                         val responseBody = response.body()
 
                         if ( responseBody != null ) {
-                            Log.d("Repository", "Movies: ${responseBody.movies}")
+                            onSuccess.invoke(responseBody.movies)
                         } else {
-                            Log.d("Repository", "Failed to get Response")
+                            onError.invoke()
                         }
+                    } else {
+                        onError.invoke()
                     }
                 }
 
                 override fun onFailure(call: Call<GetMoviesResponse>, t: Throwable) {
-                    Log.e("Repository", "onFailure", t)
+                    onError.invoke()
                 }
             })
     }
