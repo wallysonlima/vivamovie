@@ -13,7 +13,6 @@ import wallyson.lima.vivamovie.retrofit.service.MovieService
 
 object MovieRepository {
     private val movieService: MovieService
-    private val companyService: MovieService
 
     init {
             val client by lazy {
@@ -25,19 +24,12 @@ object MovieRepository {
             }
 
             val retrofit = Retrofit.Builder()
-                    .baseUrl("https://api.themoviedb.org/3/")
+                    .baseUrl("http://api.themoviedb.org/3/")
                     .addConverterFactory(GsonConverterFactory.create())
-//                    .client(client)
+                    .client(client)
                     .build()
 
-            var retrofitCompany = Retrofit.Builder()
-                .baseUrl("https://api.themoviedb.org/3/search/movie?query=marvel&api_key=6df08486f63fa614bf2d234b05405c97")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
-                .build()
-
             movieService = retrofit.create(MovieService::class.java)
-            companyService = retrofitCompany.create(MovieService::class.java)
         }
 
         fun getAllMovies(
@@ -74,7 +66,7 @@ object MovieRepository {
                            onSuccess: (movies: List<Movie>) -> Unit,
                            onError: () -> Unit)
     {
-            companyService.getAllMovies(page = page)
+            movieService.getAllMarvelMovies(page = page)
             .enqueue(object : Callback<GetMoviesResponse> {
                 override fun onResponse(
                     call: Call<GetMoviesResponse>,
@@ -99,11 +91,11 @@ object MovieRepository {
             })
     }
 
-    fun getAllGenreMovies(page: Int = 1,
-                          onSuccess: (movies: List<Movie>) -> Unit,
-                          onError: () -> Unit)
+    fun getAllTopMovies(page: Int = 1,
+                        onSuccess: (movies: List<Movie>) -> Unit,
+                        onError: () -> Unit)
     {
-            movieService.getAllMoviesByGenre(page = page)
+            movieService.getAllMoviesTopRated(page = page)
             .enqueue(object : Callback<GetMoviesResponse> {
                 override fun onResponse(
                     call: Call<GetMoviesResponse>,

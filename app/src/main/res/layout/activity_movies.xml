@@ -8,41 +8,11 @@
     tools:context=".view.UI_MoviesActivity">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="22dp"
-        android:text="@string/vivadecora"
-        android:textColor="@android:color/background_light"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="22dp"
-        android:text="@string/movies"
-        android:textColor="@color/colorPrimary"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="61dp"
         android:layout_marginBottom="1dp"
         android:text="@string/checkout"
@@ -51,7 +21,7 @@
         app:layout_constraintBottom_toTopOf="@+id/scroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scroll"
@@ -67,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/movies"
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

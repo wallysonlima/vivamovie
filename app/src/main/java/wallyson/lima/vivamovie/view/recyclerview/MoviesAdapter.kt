@@ -17,36 +17,27 @@ import wallyson.lima.vivamovie.R
 import wallyson.lima.vivamovie.model.Movie
 import wallyson.lima.vivamovie.view.UI_MovieItemActivity
 
-class MovieListAdapter (
+class MoviesAdapter (
     private val context: Context,
     private var movies: List<Movie>
-) : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
-
+) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolder {
-        val createView = LayoutInflater.from(context)
-            .inflate(
-                R.layout.movie_item,
-                parent, false
-            )
-
-        return ViewHolder(createView)
+    ): MovieViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
+        return MovieViewHolder(view)
     }
 
-    override fun getItemCount() = movies.size
+    override fun getItemCount(): Int {
+        return movies.size
+    }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(movies[position])
     }
 
-    fun update(movies: List<Movie>) {
-        this.movies = movies
-        notifyDataSetChanged()
-    }
-
-    inner class ViewHolder(itemView: View) :
+    inner class MovieViewHolder(itemView: View) :
             RecyclerView.ViewHolder(itemView) {
 
         var title : TextView = itemView.findViewById(R.id.textViewTitle)

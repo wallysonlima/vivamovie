@@ -1,14 +1,13 @@
 package wallyson.lima.vivamovie.view
 
-import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.os.StrictMode
 import android.widget.Button
-import android.widget.Toast
-import kotlinx.android.synthetic.main.quantity.view.*
+import androidx.appcompat.app.AppCompatActivity
 import wallyson.lima.vivamovie.R
+
 
 class UI_MainOptionsActivity : AppCompatActivity() {
     private lateinit var buttonListMovies: Button
@@ -21,6 +20,12 @@ class UI_MainOptionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_options)
+
+        if (Build.VERSION.SDK_INT > 9) {
+            val policy =
+                StrictMode.ThreadPolicy.Builder().permitAll().build()
+            StrictMode.setThreadPolicy(policy)
+        }
 
         initiate()
 
@@ -66,13 +71,13 @@ class UI_MainOptionsActivity : AppCompatActivity() {
 
     private fun listGenre() {
         val intent = Intent(this, UI_MoviesActivity::class.java)
-        intent.putExtra("type", "genre")
+        intent.putExtra("type", "top")
         startActivity(intent)
     }
 
     private fun listCompanies() {
         val intent = Intent(this, UI_MoviesActivity::class.java)
-        intent.putExtra("type", "company" )
+        intent.putExtra("type", "marvel" )
         startActivity(intent)
     }
 

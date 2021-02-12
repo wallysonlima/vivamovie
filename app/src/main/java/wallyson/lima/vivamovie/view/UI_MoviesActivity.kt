@@ -1,61 +1,75 @@
 package wallyson.lima.vivamovie.view
 
 import android.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
+import android.os.StrictMode
+import android.util.Log
 import android.view.LayoutInflater
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_erro.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import wallyson.lima.vivamovie.R
+import wallyson.lima.vivamovie.model.GetMoviesResponse
 import wallyson.lima.vivamovie.model.Movie
 import wallyson.lima.vivamovie.retrofit.MovieRepository
-import wallyson.lima.vivamovie.view.recyclerview.MovieListAdapter
+import wallyson.lima.vivamovie.view.recyclerview.MoviesAdapter
+
 
 class UI_MoviesActivity : AppCompatActivity() {
-    private lateinit var movies: RecyclerView
-    private lateinit var moviesAdapter: MovieListAdapter
+    private lateinit var moviesAdapter: MoviesAdapter
     private lateinit var type: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
 
-        type = intent.getStringExtra("type").toString()
+        if (Build.VERSION.SDK_INT > 9) {
+            val policy =
+                StrictMode.ThreadPolicy.Builder().permitAll().build()
+            StrictMode.setThreadPolicy(policy)
+        }
 
-        movies = findViewById(R.id.movies)
-        movies.layoutManager = LinearLayoutManager(
-            this,
-            LinearLayoutManager.HORIZONTAL,
-            false
-        )
+          type = intent.getStringExtra("type").toString()
 
-        moviesAdapter = MovieListAdapter(this, listOf())
-        movies.adapter = moviesAdapter
+          var recycler :RecyclerView = findViewById(R.id.recycler)
+          moviesAdapter = MoviesAdapter(this, mutableListOf())
+
+        val layout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recycler.layoutManager = layout
+        recycler.adapter = moviesAdapter
+        moviesAdapter.notifyDataSetChanged()
+        recycler.setHasFixedSize(true)
+        recycler.itemAnimator = DefaultItemAnimator()
 
         when(type) {
             "movies" ->
                 MovieRepository.getAllMovies(
-                    onSuccess = ::onMovieFetch,
+                    onSuccess = ::onMoviesFetched,
                     onError = ::onError
                 )
 
-            "genre" ->
-                MovieRepository.getAllGenreMovies(
-                    onSuccess = ::onMovieFetch,
+            "top" ->
+                MovieRepository.getAllTopMovies(
+                    onSuccess = ::onMoviesFetched,
                     onError = ::onError
                 )
 
-            "company" ->
+            "marvel" ->
                 MovieRepository.getAllMarvelMovies(
-                    onSuccess = ::onMovieFetch,
+                    onSuccess = ::onMoviesFetched,
                     onError = ::onError
                 )
-        }
+            }
     }
 
-    private fun onMovieFetch(movies: List<Movie>) {
-        moviesAdapter.update(movies)
+    private fun onMoviesFetched(movies: List<Movie>) {
+        Log.d("MainActivity", "Movies: $movies")
     }
 
     private fun onError() {

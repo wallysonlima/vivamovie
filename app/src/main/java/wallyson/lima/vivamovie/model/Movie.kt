@@ -1,9 +1,9 @@
 package wallyson.lima.vivamovie.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.google.gson.annotations.SerializedName
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class Movie (
     @SerializedName("title")
     var title : String,
