@@ -31,3 +31,6 @@
 ![ContactActivity](https://github.com/wallysonlima/vivamovie/blob/master/printscreen/contact.png)
 ![LocalizationActivity](https://github.com/wallysonlima/vivamovie/blob/master/printscreen/localization.png)
 ![AboutActivity](https://github.com/wallysonlima/vivamovie/blob/master/printscreen/about.png)
+
+<hr>
+<h5>Developed by Wallyson Lima</h5>
